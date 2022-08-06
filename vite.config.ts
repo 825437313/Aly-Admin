@@ -11,17 +11,18 @@ export default defineConfig({
 	},
 	plugins: [vue()],
 	server: {
-		port: 8080, //启动端口
-		hmr: {
-			host: "127.0.0.1",
-			port: 8080
-		},
-		// 设置 https 代理
+		host: "0.0.0.0", // 服务器主机名，如果允许外部访问，可设置为"0.0.0.0"
+		port: 8080,
+		open: true,
+		cors: true,
+		// https: false,
+		// 代理跨域（mock 不需要配置，这里只是个事列）
 		proxy: {
 			"/api": {
-				target: "your https address",
+				// target: "https://www.fastmock.site/mock/f81e8333c1a9276214bcdbc170d9e0a0", // fastmock
+				target: "https://mock.mengxuegu.com/mock/629d727e6163854a32e8307e", // easymock
 				changeOrigin: true,
-				rewrite: (path: string) => path.replace(/^\/api/, "")
+				rewrite: path => path.replace(/^\/api/, "")
 			}
 		}
 	}
