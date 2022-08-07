@@ -1,6 +1,8 @@
 import { ResultEnum } from "@/enums/httpEnum";
 import axios, { AxiosRequestConfig, AxiosError, AxiosResponse, AxiosInstance } from "axios";
+import { Cancle } from "./helper/axiosCancle";
 import { ResultData } from "./interface/index";
+import { GolbState } from "@/store/index";
 
 const config = {
 	// 默认地址请求地址，可在 .env 开头文件中修改
@@ -10,16 +12,18 @@ const config = {
 	// 跨域时候允许携带凭证
 	withCredentials: true
 };
-
+const concel = new Cancle();
 class RequestHttp {
 	service: AxiosInstance;
 	public constructor(config: AxiosRequestConfig) {
 		//实例化
 		this.service = axios.create(config);
-
 		this.service.interceptors.request.use(
 			(config: AxiosRequestConfig) => {
-				return config;
+				const golbstate = GolbState();
+				let token = golbstate.token;
+				concel.addPadding(config);
+				return { ...config, headers: { ...config.headers, "x-access-token": token } };
 			},
 			(error: AxiosError) => {
 				return Promise.reject(error);
@@ -28,7 +32,10 @@ class RequestHttp {
 
 		this.service.interceptors.response.use(
 			(response: AxiosResponse) => {
-				return response;
+				const { data, config } = response;
+				// * 在请求结束后，移除本次请求，并关闭请求 loading
+				concel.deletePadding(config);
+				return data;
 			},
 			async (error: AxiosError) => {
 				return Promise.reject(error);
