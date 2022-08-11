@@ -9,7 +9,8 @@ const router: Array<RouteRecordRaw> = [
 		meta: {
 			requiresAuth: false,
 			title: "404页面",
-			key: "404"
+			key: "404",
+			keepAlive: false // 不需要被缓存
 		}
 	}
 ];

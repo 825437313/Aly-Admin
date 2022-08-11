@@ -11,7 +11,7 @@
 				</div>
 				<el-form size="large" label-position="top" :model="loginfrom" :rules="loginRules" ref="loginFormRef" label-width="120px">
 					<el-form-item prop="username"> <el-input placeholder="用户名 admin" v-model="loginfrom.username" /> </el-form-item
-					><el-form-item prop="password"> <el-input placeholder="密码 admin" v-model="loginfrom.password" /> </el-form-item>
+					><el-form-item prop="password"> <el-input placeholder="密码 123456" v-model="loginfrom.password" /> </el-form-item>
 					<el-form-item>
 						<el-row justify="space-evenly">
 							<el-col :span="8"> <el-button :icon="CircleClose" round @click="onCancel(loginFormRef)">重置</el-button></el-col>
@@ -72,6 +72,15 @@ const onCancel = (formEl: FormInstance | undefined) => {
 	if (!formEl) return;
 	formEl.resetFields();
 };
+onMounted(() => {
+	//监听
+	document.onkeyup = e => {
+		if (e.code === "Enter" || e.code === "enter" || e.code === "NumpadEnter") {
+			if (loading.value) return;
+			onSubmit(loginFormRef.value);
+		}
+	};
+});
 </script>
 
 <style scoped lang="scss">
