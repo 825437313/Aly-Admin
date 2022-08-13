@@ -32,7 +32,7 @@ export default defineConfig({
 			imports: ["vue"],
 
 			// Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
-			// 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+			// 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式
 			resolvers: [
 				ElementPlusResolver(),
 
@@ -78,6 +78,27 @@ export default defineConfig({
 				target: "https://mock.mengxuegu.com/mock/629d727e6163854a32e8307e", // easymock
 				changeOrigin: true,
 				rewrite: path => path.replace(/^\/api/, "")
+			}
+		}
+	},
+	// build configure
+	build: {
+		outDir: "dist",
+		// esbuild 打包更快，但是不能去除 console.log
+		minify: "esbuild",
+		// minify: "terser",
+		// terserOptions: {
+		// 	compress: {
+		// 		drop_console: viteEnv.VITE_DROP_CONSOLE,
+		// 		drop_debugger: true
+		// 	}
+		// },
+		rollupOptions: {
+			output: {
+				// Static resource classification and packaging
+				chunkFileNames: "assets/js/[name]-[hash].js",
+				entryFileNames: "assets/js/[name]-[hash].js",
+				assetFileNames: "assets/[ext]/[name]-[hash].[ext]"
 			}
 		}
 	}

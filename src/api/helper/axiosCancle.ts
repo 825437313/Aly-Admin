@@ -57,7 +57,7 @@ export class Cancle {
 	/**
 	 * @description: 重置
 	 */
-	reset(): void {
+	reset() {
 		paddingMaps = new Map<string, Canceler>();
 	}
 }

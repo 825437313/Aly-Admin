@@ -3,6 +3,9 @@ import axios, { AxiosRequestConfig, AxiosError, AxiosResponse, AxiosInstance } f
 import { Cancle } from "./helper/axiosCancle";
 import { ResultData } from "./interface/index";
 import { GolbState } from "@/store/index";
+import { showLoading, hideLoading } from "../config/serviceLoading";
+import { ElMessage } from "element-plus";
+import router from "@/routers/index";
 
 const config = {
 	// 默认地址请求地址，可在 .env 开头文件中修改
@@ -22,6 +25,8 @@ class RequestHttp {
 			(config: AxiosRequestConfig) => {
 				const golbstate = GolbState();
 				let token = golbstate.token;
+				// *{headers: {hideLoading: true} 请求不加载loading效果
+				config.headers!.hideLoading || showLoading();
 				concel.addPadding(config);
 				return { ...config, headers: { ...config.headers, "x-access-token": token } };
 			},
@@ -29,15 +34,36 @@ class RequestHttp {
 				return Promise.reject(error);
 			}
 		);
-
+		// * 处理返回的数据
 		this.service.interceptors.response.use(
 			(response: AxiosResponse) => {
+				const golbstate = GolbState();
+				hideLoading();
 				const { data, config } = response;
 				// * 在请求结束后，移除本次请求，并关闭请求 loading
 				concel.deletePadding(config);
+				// * 状态码599代表token失效
+				if (data.code === ResultEnum.TOKENOVER) {
+					golbstate.setToken("");
+					ElMessage.error(data.msg);
+					router.replace({
+						name: "login"
+					});
+					return Promise.reject(data);
+				}
+				// *处理非200成功的请求
+				if (data.code && data.code !== ResultEnum.HTTPSUCESS) {
+					ElMessage.error(data.msg);
+					return Promise.reject(data);
+				}
 				return data;
 			},
 			async (error: AxiosError) => {
+				hideLoading();
+				// 请求超时单独判断，因为请求超时没有 response
+				if (error.message.indexOf("timeout") !== -1) ElMessage.error("请求超时！请您稍后重试");
+				//window.navigator.onLine 断网状态
+				if (!window.navigator.onLine) router.replace({ path: "/500" });
 				return Promise.reject(error);
 			}
 		);
