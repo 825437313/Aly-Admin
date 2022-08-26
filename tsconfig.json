@@ -21,7 +21,8 @@
 		},
 		"isolatedModules": false,
 		// 跳过库检查，解决打包失败
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"types": ["element-plus/global"]
 	},
 	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
 	"exclude": ["node_modules", "dist", "**/*.js"]

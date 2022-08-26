@@ -69,7 +69,7 @@ class RequestHttp {
 		);
 	}
 	//* 请求方法封装
-	get<T>(url: string, params: object, _object = {}): Promise<ResultData<T>> {
+	get<T>(url: string, params?: object, _object = {}): Promise<ResultData<T>> {
 		return this.service.get(url, { params, ..._object });
 	}
 	post<T>(url: string, params?: object, _object = {}): Promise<ResultData<T>> {
@@ -82,5 +82,6 @@ class RequestHttp {
 		return this.service.delete(url, { params, ..._object });
 	}
 }
-
-export default new RequestHttp(config);
+//单例模式
+const http = new RequestHttp(config);
+export default http;

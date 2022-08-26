@@ -19,3 +19,15 @@ export namespace Login {
 		access_token: string;
 	}
 }
+
+// * 菜单
+export namespace Menu {
+	export interface ResMenuList {
+		path: string;
+		title: string;
+		icon?: string;
+		isLink?: string;
+		close?: boolean;
+		children?: ResMenuList[];
+	}
+}
