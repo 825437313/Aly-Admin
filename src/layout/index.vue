@@ -28,6 +28,6 @@ import Menu from "./Menu/index.vue";
 import Header from "./Header/index.vue";
 import Footer from "./Footer/index.vue";
 </script>
-<style scoped>
+<style scoped lang="scss">
 @import "./index.scss";
 </style>

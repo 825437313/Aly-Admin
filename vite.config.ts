@@ -7,6 +7,7 @@ import IconsResolver from "unplugin-icons/resolver";
 import Components from "unplugin-vue-components/vite";
 import Icons from "unplugin-icons/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import VueSetupExtend from "vite-plugin-vue-setup-extend"; //vue组件name命名
 const pathSrc = path.resolve(__dirname, "src");
 export default defineConfig({
 	resolve: {
@@ -25,6 +26,7 @@ export default defineConfig({
 	},
 	plugins: [
 		vue(),
+		VueSetupExtend(),
 		// * demand import element(如果使用了cdn引入,没必要使用element自动导入了)
 		AutoImport({
 			// Auto import functions from Vue, e.g. ref, reactive, toRef...

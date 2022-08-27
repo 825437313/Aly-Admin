@@ -3,14 +3,24 @@
 	width: 100%;
 	min-width: 970px;
 	height: 100%;
-}
-.el-aside {
-	width: auto;
-	overflow: inherit;
-}
-.el-header {
-	align-items: center;
-	padding: 0;
+	.el-main {
+		box-sizing: border-box;
+		padding: 10px 13px;
+		overflow-x: hidden;
+		background: #f5f0f0;
+	}
+	.el-aside {
+		width: auto;
+		overflow: inherit;
+	}
+	.el-header {
+		align-items: center;
+		padding: 0;
+	}
+	.el-footer {
+		height: auto;
+		padding: 0;
+	}
 }
 
 /* scroll bar */
