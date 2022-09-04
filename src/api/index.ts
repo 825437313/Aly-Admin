@@ -2,10 +2,10 @@ import { ResultEnum } from "@/enums/httpEnum";
 import axios, { AxiosRequestConfig, AxiosError, AxiosResponse, AxiosInstance } from "axios";
 import { Cancle } from "./helper/axiosCancle";
 import { ResultData } from "./interface/index";
-import { GolbState } from "@/store/index";
 import { showLoading, hideLoading } from "../config/serviceLoading";
 import { ElMessage } from "element-plus";
 import router from "@/routers/index";
+import { GolbState } from "@/store/modules/golb";
 
 const config = {
 	// 默认地址请求地址，可在 .env 开头文件中修改

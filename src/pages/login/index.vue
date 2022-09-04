@@ -34,8 +34,8 @@ import { ElMessage, FormInstance, FormRules } from "element-plus";
 import { CircleClose, UserFilled } from "@element-plus/icons-vue";
 import { loginApi } from "@/api/modules/login";
 import md5 from "js-md5";
-import { GolbState } from "@/store";
 import { useRouter } from "vue-router";
+import { GolbState } from "@/store/modules/golb";
 const loginFormRef = ref<FormInstance>();
 const router = useRouter();
 // 登录表单数据

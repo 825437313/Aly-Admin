@@ -23,8 +23,14 @@
 	</template>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="menuItem">
 defineProps<{ menuList: Menu.MenuOptions[] }>();
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.el-menu-item {
+	&.is-active {
+		background-color: #0960bd;
+	}
+}
+</style>

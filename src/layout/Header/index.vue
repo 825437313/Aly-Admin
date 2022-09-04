@@ -1,7 +1,8 @@
 <template>
 	<div class="header">
-		<div class="header-left">
+		<div class="header-left flx-justify-between">
 			<Collapse />
+			<Breadcrumb />
 		</div>
 		<div class="header-right"></div>
 	</div>
@@ -9,6 +10,7 @@
 
 <script setup lang="ts">
 import Collapse from "./components/collapse.vue";
+import Breadcrumb from "./components/breadcrumb.vue";
 </script>
 
 <style scoped lang="scss">

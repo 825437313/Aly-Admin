@@ -14,6 +14,7 @@ const isCollapse = computed((): boolean => menuStore.isCollapse);
 
 <style scoped lang="scss">
 .icons {
+	margin-right: 20px;
 	font-size: 24px;
 	cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import router from "@/routers/router";
 import NProgress from "@/config/nprogress";
-import { GolbState } from "../store/index";
 import { Cancle } from "@/api/helper/axiosCancle";
+import { GolbState } from "@/store/modules/golb";
 const canclePadding = new Cancle();
 router.beforeEach((to, from, next) => {
 	//* 路由跳转前清除所有网络请求

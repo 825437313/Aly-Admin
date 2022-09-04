@@ -6,6 +6,7 @@
 		<el-container>
 			<el-header>
 				<Header></Header>
+				<TablList></TablList>
 			</el-header>
 			<el-main>
 				<router-view v-slot="{ Component, route }">
@@ -27,6 +28,7 @@
 import Menu from "./Menu/index.vue";
 import Header from "./Header/index.vue";
 import Footer from "./Footer/index.vue";
+import TablList from "./Tab/index.vue";
 </script>
 <style scoped lang="scss">
 @import "./index.scss";

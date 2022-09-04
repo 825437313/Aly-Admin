@@ -6,7 +6,7 @@
 		</div>
 		<div class="home-right">
 			<p class="title1">爱一个人 是那么的痛苦</p>
-			<p class="title2">我也想谈个恋爱 @.@</p>
+			<p class="title2">我也想尝尝爱情的心酸 @.@</p>
 		</div>
 	</div>
 </template>
@@ -18,6 +18,7 @@
 	height: 100%;
 	text-align: center;
 	background-color: #ffffff;
+	border-radius: 4px;
 	.home-left {
 		h1 {
 			margin-bottom: 20px;

@@ -11,12 +11,13 @@
 			<el-scrollbar>
 				<el-menu
 					:unique-opened="true"
-					background-color="#191a20"
+					background-color="#001529"
 					text-color="#bdbdc0"
 					active-text-color="#fff"
 					:router="true"
 					:collapse="isCollapse"
 					:collapse-transition="false"
+					:default-active="activeMenu"
 				>
 					<MunuItem :menuList="menuList"></MunuItem>
 				</el-menu>
@@ -31,9 +32,12 @@ import { MenuList } from "@/api/modules/menu";
 import Logo from "./components/Logo/index.vue";
 import MunuItem from "./components/MunuItem/index.vue";
 import { MenuStore } from "../../store/modules/menu";
+import { useRoute } from "vue-router";
+import { ArrFlatMap } from "../../utils/index";
 
 const menuLoading = ref(false);
 const menuStore = MenuStore();
+const route = useRoute();
 
 const svg = `
 <path class="path" d="
@@ -50,12 +54,14 @@ onMounted(async () => {
 	try {
 		const res = await MenuList();
 		if (!res.data) return;
+		menuStore.setFlatMenuList(ArrFlatMap(res.data));
 		menuStore.setMenuList(res.data);
 	} finally {
 		menuLoading.value = false;
 	}
 });
 
+const activeMenu = computed((): string => route.path);
 const menuList = computed((): Menu.MenuOptions[] => menuStore.MenuList);
 const isCollapse = computed((): boolean => menuStore.isCollapse);
 </script>
@@ -64,7 +70,7 @@ const isCollapse = computed((): boolean => menuStore.isCollapse);
 .main {
 	width: 100%;
 	height: 100%;
-	background-color: #191a20;
+	background-color: #001529;
 	transition: all 0.3s ease;
 	.el-scrollbar {
 		height: calc(100% - 60px);

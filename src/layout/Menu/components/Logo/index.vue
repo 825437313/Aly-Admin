@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<img src="@/assets/images/logo.svg" alt="logo" />
-		<span v-show="showName">Toaly-admin</span>
+		<span v-show="showName">Toaly Admin</span>
 	</div>
 </template>
 

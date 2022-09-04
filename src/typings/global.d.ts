@@ -9,3 +9,13 @@ declare namespace Menu {
 		children?: MenuOptions[];
 	}
 }
+
+// *Tab
+declare namespace Tab {
+	interface TabOptions {
+		title: string;
+		name: string;
+		icons?: string;
+		closable: boolean;
+	}
+}
