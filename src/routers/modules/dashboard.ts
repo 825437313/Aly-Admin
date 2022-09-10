@@ -17,6 +17,17 @@ const router: Array<RouteRecordRaw> = [
 					title: "数据可视化",
 					key: "dataVisualize"
 				}
+			},
+			{
+				name: "embedded",
+				path: "/dashboard/embedded",
+				component: () => import("@/pages/dashboard/embedded/index.vue"),
+				meta: {
+					keepAlive: true,
+					requiresAuth: true,
+					title: "内嵌页面",
+					key: "embedded"
+				}
 			}
 		]
 	}
