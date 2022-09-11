@@ -1,28 +1,28 @@
 <template>
-	<div class="main" :style="{ width: isCollapse ? '65px' : '220px' }">
+	<div
+		class="main"
+		:style="{ width: isCollapse ? '65px' : '220px' }"
+		v-loading="menuLoading"
+		element-loading-text="Loading..."
+		:element-loading-spinner="svg"
+		element-loading-svg-view-box="-10, -10, 50, 50"
+		element-loading-background="rgba(122, 122, 122, 0.01)"
+	>
 		<Logo :showName="!isCollapse"></Logo>
-		<div
-			v-loading="menuLoading"
-			element-loading-text="Loading..."
-			:element-loading-spinner="svg"
-			element-loading-svg-view-box="-10, -10, 50, 50"
-			element-loading-background="rgba(122, 122, 122, 0.01)"
-		>
-			<el-scrollbar>
-				<el-menu
-					:unique-opened="true"
-					background-color="#001529"
-					text-color="#bdbdc0"
-					active-text-color="#fff"
-					:router="true"
-					:collapse="isCollapse"
-					:collapse-transition="false"
-					:default-active="activeMenu"
-				>
-					<MunuItem :menuList="menuList"></MunuItem>
-				</el-menu>
-			</el-scrollbar>
-		</div>
+		<el-scrollbar>
+			<el-menu
+				:unique-opened="true"
+				background-color="#001529"
+				text-color="#bdbdc0"
+				active-text-color="#fff"
+				:router="true"
+				:collapse="isCollapse"
+				:collapse-transition="false"
+				:default-active="activeMenu"
+			>
+				<MunuItem :menuList="menuList"></MunuItem>
+			</el-menu>
+		</el-scrollbar>
 	</div>
 </template>
 

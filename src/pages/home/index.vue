@@ -17,11 +17,16 @@
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	background-color: #ffffff;
-	border-radius: 4px;
 	.home-left {
 		h1 {
 			margin-bottom: 20px;
+		}
+
+		width: 50%;
+		height: 50%;
+		img {
+			width: 100%;
+			height: 100%;
 		}
 	}
 	.home-right {
