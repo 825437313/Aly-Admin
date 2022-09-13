@@ -6,8 +6,12 @@ import "@/styles/reset.scss";
 import "element-plus/dist/index.css";
 // CSS common style sheet
 import "@/styles/common.scss";
+// CSS custom element styles
+import "@/styles/element.scss";
 import pinia from "@/store/index";
 import router from "@/routers/index";
+// custom directives 自定义指令
+import directives from "@/directives/index";
 import App from "./App.vue";
 
 // 如果您正在使用CDN引入，请删除下面一行。
@@ -17,4 +21,4 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 	app.component(key, component);
 }
 
-app.use(router).use(pinia).mount("#app");
+app.use(router).use(pinia).use(directives).mount("#app");

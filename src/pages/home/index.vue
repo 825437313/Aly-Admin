@@ -1,5 +1,5 @@
 <template>
-	<div class="flx-center home">
+	<div class="flx-center home card">
 		<div class="home-left">
 			<h1>Welcome</h1>
 			<img src="@/assets/images/welcome.svg" alt="Welcome" />

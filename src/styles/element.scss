@@ -1,0 +1,47 @@
+// * card 卡片样式
+.card {
+	box-sizing: border-box;
+	padding: 20px;
+	overflow-x: hidden;
+	background-color: var(--el-fill-color-blank);
+	border: 1px solid var(--el-border-color-light);
+	border-radius: 4px;
+	box-shadow: 0 0 12px rgb(0 0 0 / 5%);
+}
+
+// * 不需要 card 卡片样式（在组件内使用 proTable 会使用到）
+.no-card {
+	.card {
+		padding: 0;
+		background-color: transparent;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+	}
+}
+
+// * content-box (常用内容盒子)
+.content-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	.text {
+		margin: 20px 0 30px;
+		font-size: 23px;
+		font-weight: bold;
+		color: rgb(88 88 88);
+	}
+}
+
+// * el-dialog 样式
+.el-dialog {
+	.el-dialog__header {
+		padding: 15px 20px;
+		margin: 0;
+		border-bottom: 1px solid #f0f0f0;
+		.el-dialog__title {
+			font-size: 17px;
+		}
+	}
+}
