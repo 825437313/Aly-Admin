@@ -1,8 +1,10 @@
 import { App } from "vue";
 import copy from "./modules/cope";
+import watermark from "./modules/watermark";
 
 const directivesList: any = {
-	copy
+	copy,
+	watermark
 };
 // 自定义指令
 const directives = {

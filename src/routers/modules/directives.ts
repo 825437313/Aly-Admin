@@ -20,6 +20,17 @@ const router: Array<RouteRecordRaw> = [
 					title: "复制指令",
 					key: "copyDirect"
 				}
+			},
+			{
+				name: "watermarkDirect",
+				path: "/directives/watermarkDirect",
+				component: () => import("@/pages/directives/watermarkDirect/index.vue"),
+				meta: {
+					keepAlive: true,
+					requiresAuth: true,
+					title: "水印指令",
+					key: "watermarkDirect"
+				}
 			}
 		]
 	}
