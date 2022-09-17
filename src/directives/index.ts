@@ -1,10 +1,12 @@
 import { App } from "vue";
 import copy from "./modules/cope";
 import watermark from "./modules/watermark";
+import drag from "./modules/drag";
 
 const directivesList: any = {
 	copy,
-	watermark
+	watermark,
+	drag
 };
 // 自定义指令
 const directives = {

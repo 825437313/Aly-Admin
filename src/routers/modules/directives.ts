@@ -31,6 +31,17 @@ const router: Array<RouteRecordRaw> = [
 					title: "水印指令",
 					key: "watermarkDirect"
 				}
+			},
+			{
+				name: "drag",
+				path: "/directives/dragDirect",
+				component: () => import("@/pages/directives/drag/index.vue"),
+				meta: {
+					keepAlive: true,
+					requiresAuth: true,
+					title: "拖拽指令",
+					key: "drag"
+				}
 			}
 		]
 	}
