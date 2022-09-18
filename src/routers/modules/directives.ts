@@ -53,6 +53,17 @@ const router: Array<RouteRecordRaw> = [
 					title: "防抖指令",
 					key: "debounceDirect"
 				}
+			},
+			{
+				path: "/directives/throttleDirect",
+				name: "throttle",
+				component: () => import("@/pages/directives/throttle/index.vue"),
+				meta: {
+					keepAlive: true,
+					requiresAuth: true,
+					title: "节流指令",
+					key: "throttle"
+				}
 			}
 		]
 	}
