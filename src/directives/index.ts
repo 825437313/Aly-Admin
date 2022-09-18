@@ -2,11 +2,13 @@ import { App } from "vue";
 import copy from "./modules/cope";
 import watermark from "./modules/watermark";
 import drag from "./modules/drag";
+import debounce from "./modules/debounce";
 
 const directivesList: any = {
 	copy,
 	watermark,
-	drag
+	drag,
+	debounce
 };
 // 自定义指令
 const directives = {

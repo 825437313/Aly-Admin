@@ -42,6 +42,17 @@ const router: Array<RouteRecordRaw> = [
 					title: "拖拽指令",
 					key: "drag"
 				}
+			},
+			{
+				path: "/directives/debounceDirect",
+				name: "debounce",
+				component: () => import("@/pages/directives/debounceDirect/index.vue"),
+				meta: {
+					keepAlive: true,
+					requiresAuth: true,
+					title: "防抖指令",
+					key: "debounceDirect"
+				}
 			}
 		]
 	}
