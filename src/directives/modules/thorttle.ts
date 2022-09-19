@@ -4,8 +4,8 @@
 import { isFunction } from "@/utils";
 import type { Directive, DirectiveBinding } from "vue";
 interface ElType extends HTMLElement {
-	_handerClick: () => void;
-	flag: boolean; //节流阀
+	_handerClick: () => any;
+	disabled: boolean; //节流阀
 }
 
 const thorttle: Directive = {
@@ -17,11 +17,11 @@ const thorttle: Directive = {
 			if (timer) {
 				clearTimeout(timer);
 			}
-			if (!el.flag) {
-				el.flag = true;
+			if (!el.disabled) {
+				el.disabled = true;
 				binding.value();
 				timer = setTimeout(() => {
-					el.flag = false;
+					el.disabled = false;
 				}, 1000);
 			}
 		};
